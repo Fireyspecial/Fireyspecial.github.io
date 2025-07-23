@@ -1124,8 +1124,10 @@ document.getElementById("KeywordInput").addEventListener("submit", function(even
     if (button) setActiveButton(button);
 
     document.getElementById("output").innerText = 'Success!'; // Clear error if valid
+    playWinnerSound();
   } else {
     document.getElementById("output").innerText = `Invalid Input! Try again...`;
+    playDeniedSound();
   }
 
   this.reset(); // optional: clears the input field
