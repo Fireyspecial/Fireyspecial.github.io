@@ -193,6 +193,7 @@ body {
     object-fit: fill;
 }
 
+/* qr code */
 #QRCode {
     display: block;
     margin: 1em auto 0;
@@ -987,7 +988,7 @@ body {
 
     #QRCode {
         display: none;
-        
+
     }
 
 
