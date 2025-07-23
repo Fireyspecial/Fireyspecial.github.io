@@ -131,7 +131,8 @@ header h1 {
 
 #leftBtn,
 #rightBtn,
-#resetBtn {
+#resetBtn,
+#Submit {
     background: #b16e09;
     color: white;
     border: none;
@@ -144,8 +145,23 @@ header h1 {
 
 #leftBtn:hover,
 #rightBtn:hover,
-#resetBtn:hover {
+#resetBtn:hover,
+#Submit:hover {
     background: #60a5fa;
+}
+
+#Submit {
+    width: auto;
+    /* Let it shrink to fit content */
+    min-width: unset;
+    /* Cancel any inherited minimum */
+    max-width: 100%;
+    /* Prevent overflow */
+    padding: 0.4rem 0.8rem;
+    /* Smaller padding */
+    font-size: 0.85rem;
+    /* Smaller text */
+    box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -881,7 +897,7 @@ header h1 {
         gap: 0.5rem;
         display: none;
         /* Hidden by default on mobile */
-        
+
     }
 
     /* Show hamburger menu on mobile */
@@ -900,9 +916,10 @@ header h1 {
         cursor: pointer;
     }
 
-    #scoreBox, #durianId {
-    display: inline-block;
-    vertical-align: middle;
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     /* Show menu when hamburger is clicked */
@@ -1062,9 +1079,10 @@ header h1 {
         font-size: 0.7rem;
     }
 
-    #scoreBox, #durianId {
-    display: inline-block;
-    vertical-align: middle;
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     /*button sizes*/

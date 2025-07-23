@@ -314,10 +314,10 @@ document.addEventListener('keydown', (e) => {
             }
     }
 
-    // Prevent default browser behavior for these keys
-    if (['KeyA', 'KeyD', 'KeyW', 'KeyS', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code)) {
-        e.preventDefault();
-    }
+    // // Prevent default browser behavior for these keys
+    // if (['KeyA', 'KeyD', 'KeyW', 'KeyS', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code)) {
+    //     e.preventDefault();
+    // }
 });
 
 
@@ -1095,7 +1095,7 @@ function addButtonEffects() {
             ripple.classList.add('ripple');
             this.appendChild(ripple);
 
-            setTimeout(() => {
+            setTimeout(() => {  
                 ripple.remove();
             }, 600);
         });
@@ -1108,6 +1108,28 @@ function addButtonEffects() {
     });
 }
 
+//Form
+document.getElementById("KeywordInput").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const userInput = formData.get("Keyword").toLowerCase().trim();
+
+  const validParts = ["Head", "head", "Neck", "neck", "Body", "body", "Legs", "legs", "Hooves", "hooves"]; // Add more parts as needed
+
+  if (validParts.includes(userInput)) {
+    updateAnatomyInfo(userInput);
+
+    const button = document.querySelector(`.anatomy-buttons button[data-part="${userInput}"]`);
+    if (button) setActiveButton(button);
+
+    document.getElementById("output").innerText = 'Success!'; // Clear error if valid
+  } else {
+    document.getElementById("output").innerText = `Invalid Input! Try again...`;
+  }
+
+  this.reset(); // optional: clears the input field
+});
 // Event listeners for anatomy buttons
 document.addEventListener('DOMContentLoaded', function () {
     // Head button
