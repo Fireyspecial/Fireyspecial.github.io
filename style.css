@@ -193,6 +193,14 @@ body {
     object-fit: fill;
 }
 
+#QRCode {
+    display: block;
+    margin: 1em auto 0;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
 /* ==========================================================================
    INTERACTIVE ELEMENTS - MAMBO CLICKER GAME
    ========================================================================== */
@@ -975,6 +983,11 @@ body {
     .dropdown-bestiary,
     .dropdown-container {
         z-index: 10;
+    }
+
+    #QRCode {
+        display: none;
+        
     }
 
 
