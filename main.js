@@ -1308,9 +1308,9 @@ function addSectionClickHandler(section, index) {
         else if (Haruscore >= 20 && !Harushown && Winner) {
             const haruSection = document.getElementById('haru');
             const oldImage = haruSection.querySelector('img');
-            const newParagraph1 = document.querySelector("#haru1");
-            const newParagraph2 = document.querySelector("#haru2");
-            const newParagraph3 = document.querySelector("#haru3");
+            const newParagraph1 = document.querySelector("#Haru1");
+            const newParagraph2 = document.querySelector("#Haru2");
+            const newParagraph3 = document.querySelector("#Haru3");
 
 
             if (oldImage) {
