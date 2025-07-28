@@ -1003,8 +1003,6 @@ header h1 {
     #QRCode {
         display: none;
     }
-
-
 }
 
 @media screen and (max-width: 768px) {
@@ -1128,7 +1126,7 @@ header h1 {
     }
 
     .bestiary-text {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .bestiary-image img {

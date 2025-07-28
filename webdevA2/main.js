@@ -14,8 +14,6 @@ var Haruscore = 0;
 var Harushown = false;
 
 
-
-
 // Function to hide all pages
 function hideall() {
     for (let onepage of allpages) {
