@@ -10,10 +10,13 @@
 
 body {
     background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
-    margin: 0;
-    padding: 0;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
+header h1 {
+    margin-top: 0;
+}
 
 
 /* Head */
@@ -128,7 +131,8 @@ body {
 
 #leftBtn,
 #rightBtn,
-#resetBtn {
+#resetBtn,
+#Submit {
     background: #b16e09;
     color: white;
     border: none;
@@ -141,8 +145,23 @@ body {
 
 #leftBtn:hover,
 #rightBtn:hover,
-#resetBtn:hover {
+#resetBtn:hover,
+#Submit:hover {
     background: #60a5fa;
+}
+
+#Submit {
+    width: auto;
+    /* Let it shrink to fit content */
+    min-width: unset;
+    /* Cancel any inherited minimum */
+    max-width: 100%;
+    /* Prevent overflow */
+    padding: 0.4rem 0.8rem;
+    /* Smaller padding */
+    font-size: 0.85rem;
+    /* Smaller text */
+    box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -190,6 +209,15 @@ body {
     margin: 1em auto 0;
     width: 200px;
     height: 100px;
+    object-fit: fill;
+}
+
+/* qr code */
+#QRCode {
+    display: block;
+    margin: 1em auto 0;
+    width: 200px;
+    height: 200px;
     object-fit: fill;
 }
 
@@ -685,12 +713,6 @@ body {
     box-shadow: 0 2px 8px rgba(177, 110, 9, 0.3);
 }
 
-.anatomy-buttons button.active {
-    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
-    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4);
-    animation: pulse 2s infinite;
-}
-
 .anatomy-info {
     background: white;
     border-radius: 1rem;
@@ -869,7 +891,7 @@ body {
         gap: 0.5rem;
         display: none;
         /* Hidden by default on mobile */
-        
+
     }
 
     /* Show hamburger menu on mobile */
@@ -888,9 +910,10 @@ body {
         cursor: pointer;
     }
 
-    #scoreBox, #durianId {
-    display: inline-block;
-    vertical-align: middle;
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     /* Show menu when hamburger is clicked */
@@ -977,6 +1000,10 @@ body {
         z-index: 10;
     }
 
+    #QRCode {
+        display: none;
+    }
+
 
 }
 
@@ -1046,9 +1073,10 @@ body {
         font-size: 0.7rem;
     }
 
-    #scoreBox, #durianId {
-    display: inline-block;
-    vertical-align: middle;
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
     }
 
     /*button sizes*/
@@ -1067,7 +1095,7 @@ body {
 
     .dropdown-content .mamboNav {
         font-size: 0.8rem;
-        margin: none;
+        margin: 0;
         /* or 12px */
     }
 

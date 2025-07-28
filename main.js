@@ -176,7 +176,7 @@ function CheckForTargetArea() {
             </div>
         `},
         {
-            start: 0.25, end: 0.45, content: `
+            start: 0.25, end: 0.5, content: `
             <div class="history-section">
                 <h3>Domestication & Early History</h3>
                 <ul>
@@ -189,7 +189,7 @@ function CheckForTargetArea() {
             </div>
         `},
         {
-            start: 0.4, end: 0.75, content: `
+            start: 0.5, end: 0.75, content: `
             <div class="history-section">
                 <h3>Horses in the Americas</h3>
                 <ul>
@@ -240,7 +240,7 @@ function CheckForTargetArea() {
         if (ballX >= MaxX * zone.start && ballX <= MaxX * zone.end) {
             document.querySelector("#contentBox").innerHTML = zone.content;
             found = true;
-            console.log(`In zone: ${zone.start}-${zone.end}, ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX / MaxX}`);
+            console.log(`In zone: ${zone.start}-${zone.end}, ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX/MaxX}`);
             break;
         }
     }
@@ -248,7 +248,7 @@ function CheckForTargetArea() {
     // Fallback if no zone is found
     if (!found) {
         document.querySelector("#contentBox").innerHTML = "Use the buttons or A & D to move the horse";
-        console.log(`No zone found! ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX / MaxX}`);
+        console.log(`No zone found! ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX/MaxX}`);
     }
 }
 
@@ -263,7 +263,7 @@ function MoveRight() {
 
 function MoveLeftBtn() {
     // Smaller movement on mobile devices
-    const moveDistance = window.innerWidth < 768 ? contentWidth / 15 : contentWidth / 5;
+    const moveDistance = window.innerWidth < 768 ? contentWidth / 15 : contentWidth / 6;
     MovePos(-moveDistance, 0);
     console.log("Moved by " + moveDistance + " !");
     playClickShiftSound();
@@ -277,7 +277,7 @@ function MoveLeftBtn() {
 }
 
 function MoveRightBtn() {
-    const moveDistance = window.innerWidth < 768 ? contentWidth / 15 : contentWidth / 5;
+    const moveDistance = window.innerWidth < 768 ? contentWidth / 15 : contentWidth / 6;
     MovePos(moveDistance, 0);
     console.log("Moved by " + moveDistance + " !");
     playClickShiftSound();
@@ -314,10 +314,10 @@ document.addEventListener('keydown', (e) => {
             }
     }
 
-    // Prevent default browser behavior for these keys
-    if (['KeyA', 'KeyD', 'KeyW', 'KeyS', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code)) {
-        e.preventDefault();
-    }
+    // // Prevent default browser behavior for these keys
+    // if (['KeyA', 'KeyD', 'KeyW', 'KeyS', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.code)) {
+    //     e.preventDefault();
+    // }
 });
 
 
@@ -792,7 +792,7 @@ function toggleBestiaryMenu(e) {
         playClickMenuSound();
         bestiaryMenuList.style.display = "block";
 
-
+        
         //Kill off the other opened ones
         objectivesMenuList.classList.remove("show");
         objectivesMenuBtn.innerHTML = "Open Objectives";
@@ -960,19 +960,21 @@ function ObjCheck() {
     if (score >= 100) {
         Objective3.style.textDecoration = "line-through";
     }
-    else {
+    else
+    {
         Objective3.style.textDecoration = "none";
     }
 
     if (doubleScoreBought && firstCreatureBought && secondCreatureBought &&
         BestiaryOneBought && BestiaryTwoBought &&
         checkedBestiaryOne && checkedBestiaryTwo &&
-        score >= 100) {
+        score >= 100 && !Winner) {
         const objectivesContainer = document.querySelector(".objectives-content");
         const WinMessage = document.createElement("p");
         WinMessage.id = "Win";
         WinMessage.innerHTML = "All Objectives Complete!<br> You should click on the 1st horse in the Horse Behaviour section 20 times now.";
         Winner = true;
+
 
         objectivesContainer.appendChild(WinMessage); // Adds it at the end
     }
@@ -1093,7 +1095,7 @@ function addButtonEffects() {
             ripple.classList.add('ripple');
             this.appendChild(ripple);
 
-            setTimeout(() => {
+            setTimeout(() => {  
                 ripple.remove();
             }, 600);
         });
@@ -1106,6 +1108,30 @@ function addButtonEffects() {
     });
 }
 
+//Form
+document.getElementById("KeywordInput").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const formData = new FormData(this);
+  const userInput = formData.get("Keyword").toLowerCase().trim();
+
+  const validParts = ["Head", "head", "Neck", "neck", "Body", "body", "Legs", "legs", "Hooves", "hooves"]; // Add more parts as needed
+
+  if (validParts.includes(userInput)) {
+    updateAnatomyInfo(userInput);
+
+    const button = document.querySelector(`.anatomy-buttons button[data-part="${userInput}"]`);
+    if (button) setActiveButton(button);
+
+    document.getElementById("output").innerText = 'Success!'; // Clear error if valid
+    playWinnerSound();
+  } else {
+    document.getElementById("output").innerText = `Invalid Input! Try again...`;
+    playDeniedSound();
+  }
+
+  this.reset(); // optional: clears the input field
+});
 // Event listeners for anatomy buttons
 document.addEventListener('DOMContentLoaded', function () {
     // Head button
@@ -1306,9 +1332,9 @@ function addSectionClickHandler(section, index) {
         else if (Haruscore >= 20 && !Harushown && Winner) {
             const haruSection = document.getElementById('haru');
             const oldImage = haruSection.querySelector('img');
-            const newParagraph1 = document.querySelector("#haru1");
-            const newParagraph2 = document.querySelector("#haru2");
-            const newParagraph3 = document.querySelector("#haru3");
+            const newParagraph1 = document.querySelector("#Haru1");
+            const newParagraph2 = document.querySelector("#Haru2");
+            const newParagraph3 = document.querySelector("#Haru3");
 
 
             if (oldImage) {
@@ -1582,7 +1608,7 @@ const HachimiSound = new Audio("audio/Hachimi.mp3");
 const GoldshiScreamSound = new Audio("audio/GoldshiScream.mp3");
 const WinnerSound = new Audio("audio/Success.mp3");
 const XSound = new Audio("audio/JumpXButton.mp3");
-const DeniedSound = new Audio("audio/Denied.mp3");
+const DeniedSound = new Audio ("audio/Denied.mp3");
 
 //Audio adjust
 GoldshiScreamSound.volume = 0.5; // Lower volume for Goldshi scream
@@ -1643,7 +1669,7 @@ function playCrossXSound() {
     JumpSoundX.play();
 }
 
-function playDeniedSound() {
+function playDeniedSound () {
     const Denied = DeniedSound.cloneNode(); // Duplicate to allow overlapping
     Denied.play();
 }
@@ -1696,7 +1722,6 @@ function enterFullscreen() { //must be called by user generated event
         document.documentElement.msRequestFullscreen();
     }
 }
-
 
 /*What to do.
 
