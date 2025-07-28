@@ -10,13 +10,10 @@
 
 body {
     background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+    margin: 0;
+    padding: 0;
 }
 
-header h1 {
-    margin-top: 0;
-}
 
 
 /* Head */
@@ -131,8 +128,7 @@ header h1 {
 
 #leftBtn,
 #rightBtn,
-#resetBtn,
-#Submit {
+#resetBtn {
     background: #b16e09;
     color: white;
     border: none;
@@ -145,23 +141,8 @@ header h1 {
 
 #leftBtn:hover,
 #rightBtn:hover,
-#resetBtn:hover,
-#Submit:hover {
+#resetBtn:hover {
     background: #60a5fa;
-}
-
-#Submit {
-    width: auto;
-    /* Let it shrink to fit content */
-    min-width: unset;
-    /* Cancel any inherited minimum */
-    max-width: 100%;
-    /* Prevent overflow */
-    padding: 0.4rem 0.8rem;
-    /* Smaller padding */
-    font-size: 0.85rem;
-    /* Smaller text */
-    box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -209,15 +190,6 @@ header h1 {
     margin: 1em auto 0;
     width: 200px;
     height: 100px;
-    object-fit: fill;
-}
-
-/* qr code */
-#QRCode {
-    display: block;
-    margin: 1em auto 0;
-    width: 200px;
-    height: 200px;
     object-fit: fill;
 }
 
@@ -713,6 +685,11 @@ header h1 {
     box-shadow: 0 2px 8px rgba(177, 110, 9, 0.3);
 }
 
+.anatomy-buttons button.active {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.4);
+    animation: pulse 2s infinite;
+}
 
 .anatomy-info {
     background: white;
@@ -892,7 +869,7 @@ header h1 {
         gap: 0.5rem;
         display: none;
         /* Hidden by default on mobile */
-
+        
     }
 
     /* Show hamburger menu on mobile */
@@ -911,10 +888,9 @@ header h1 {
         cursor: pointer;
     }
 
-    #scoreBox,
-    #durianId {
-        display: inline-block;
-        vertical-align: middle;
+    #scoreBox, #durianId {
+    display: inline-block;
+    vertical-align: middle;
     }
 
     /* Show menu when hamburger is clicked */
@@ -1001,10 +977,6 @@ header h1 {
         z-index: 10;
     }
 
-    #QRCode {
-        display: none;
-    }
-
 
 }
 
@@ -1074,10 +1046,9 @@ header h1 {
         font-size: 0.7rem;
     }
 
-    #scoreBox,
-    #durianId {
-        display: inline-block;
-        vertical-align: middle;
+    #scoreBox, #durianId {
+    display: inline-block;
+    vertical-align: middle;
     }
 
     /*button sizes*/
@@ -1096,7 +1067,7 @@ header h1 {
 
     .dropdown-content .mamboNav {
         font-size: 0.8rem;
-        margin: 0;
+        margin: none;
         /* or 12px */
     }
 
