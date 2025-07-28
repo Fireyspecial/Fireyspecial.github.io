@@ -880,7 +880,7 @@ function toggleSecPopup(e) {
 
     if (bestiaryPage2.classList.contains("show")) {
         playClickMenuSound();
-        bestiaryPage2.style.display = "flex";
+        bestiaryPage2.style.display = "block";
         objectivesMenuList.style.display = "none";
         objectivesMenuList.classList.remove("show");
         menuStoreList.style.display = "none";
