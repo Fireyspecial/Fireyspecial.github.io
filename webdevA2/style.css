@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* font */
 @font-face {
     font-family: 'Nexa';
@@ -1178,4 +1179,1186 @@ header h1 {
     }
 
 
+=======
+/* font */
+@font-face {
+    font-family: 'Nexa';
+    src: url('fonts/Nexa-ExtraLight.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Base */
+
+body {
+    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+
+/* Head */
+
+.main-header {
+    background: linear-gradient(90deg, #622400 0%, #6a4a04 100%);
+    color: white;
+    padding: 0 0 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.hero-content {
+    margin: 0 auto;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Nav */
+
+.main-nav {
+    background: rgb(40, 31, 12);
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2rem;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.main-nav ul li {
+    display: inline;
+}
+
+.main-nav button {
+    background: #b16e09;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.main-nav button:hover {
+    background: #60a5fa;
+}
+
+/* Mobile hamburger menu - initially hidden */
+#hamIcon {
+    display: none;
+}
+
+/* ==========================================================================
+   PAGE LAYOUT STYLES
+   ========================================================================== */
+
+.page.card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 700px;
+    width: 90vw;
+    box-sizing: border-box;
+    min-height: 300px;
+    position: relative;
+}
+
+#page5 {
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    max-width: 1500px;
+    max-height: 800px;
+    height: 60vw;
+}
+
+
+/* ==========================================================================
+   BUTTON STYLES
+   ========================================================================== */
+
+.button-group {
+    background: rgb(40, 31, 12);
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#leftBtn,
+#rightBtn,
+#resetBtn,
+#Submit {
+    background: #b16e09;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#leftBtn:hover,
+#rightBtn:hover,
+#resetBtn:hover,
+#Submit:hover {
+    background: #60a5fa;
+}
+
+#Submit {
+    width: auto;
+    /* Let it shrink to fit content */
+    min-width: unset;
+    /* Cancel any inherited minimum */
+    max-width: 100%;
+    /* Prevent overflow */
+    padding: 0.4rem 0.8rem;
+    /* Smaller padding */
+    font-size: 0.85rem;
+    /* Smaller text */
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS - HORSE MOVEMENT
+   ========================================================================== */
+#mambo,
+#ball {
+    width: 140px;
+    height: 102px;
+    background-image: url('images/MamboSprite.jpg');
+    background-repeat: no-repeat;
+    border-radius: 0.5rem;
+}
+
+/* Idle frame - left half */
+#mambo.idle,
+#ball.idle {
+    background-position: 0 0;
+}
+
+/* Move frame - right half */
+#mambo.move,
+#ball.move {
+    background-position: -140px 0;
+}
+
+#ball {
+    /* Remove background: transparent; */
+    color: transparent;
+    font-weight: bold;
+    font-size: 1.2rem;
+    width: 140px;
+    /* consistent with sprite frame */
+    height: 102px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.2s ease;
+}
+
+/* Horse kick animation image */
+#horsekick {
+    display: block;
+    margin: 1em auto 0;
+    width: 200px;
+    height: 100px;
+    object-fit: fill;
+}
+
+/* qr code */
+#QRCode {
+    display: block;
+    margin: 1em auto 0;
+    width: 200px;
+    height: 200px;
+    object-fit: fill;
+}
+
+/* ==========================================================================
+   INTERACTIVE ELEMENTS - MAMBO CLICKER GAME
+   ========================================================================== */
+
+#durianId,
+#creatureOne,
+#creatureTwo {
+    position: absolute;
+    width: 10vw;
+    max-width: 120px;
+    min-width: 60px;
+    transition: all 0.5s ease;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Durian shrinking animation class */
+#durianId.shrink,
+#creatureOne.shrink,
+#creatureTwo.shrink {
+    width: 5vw;
+    opacity: 0;
+}
+
+.game-section {
+    user-select: none;
+}
+
+/* Store */
+
+/* Dropdown container (top right corner) */
+.dropdown-container {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+}
+
+/* Toggle button */
+.dropdown-toggle {
+    background-color: #4b5563;
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 110px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 350px;
+    min-height: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    user-select: none;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f3f4f6;
+}
+
+/* Show dropdown when toggled */
+.dropdown-container.show .dropdown-content {
+    display: block;
+}
+
+
+/*Bestiary Section*/
+.dropdown-bestiary {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 10;
+    user-select: none;
+}
+
+/* The toggle button */
+.bestiary-toggle {
+    background-color: #4b5563;
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 110px;
+    cursor: pointer;
+}
+
+/* The dropdown content */
+/* Make sure the dropdown content is going upwards instead of downwards */
+.bestiary-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    bottom: 100%;
+    /* Position above the toggle button */
+    right: 0;
+    /* Align right edges */
+    background-color: white;
+    border-radius: 0.5rem;
+    /* Rounded top corners */
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    /* Shadow above */
+    min-width: 150px;
+    padding: 0.5rem;
+    z-index: 20;
+}
+
+.bestiary-content.show {
+    display: block;
+    /* Show when toggled */
+}
+
+.bestiary-page1 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 90vh;
+    /* Ensure it doesn't go off screen */
+    margin: auto;
+    position: fixed;
+    top: 10%;
+    /* Start 10% from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Only center horizontally */
+    overflow-y: auto;
+    z-index: 1000;
+    gap: 20px;
+    box-shadow: 0 -8px 16px rgba(255, 0, 0, 0.15);
+}
+
+
+.bestiary-content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.bestiary-text {
+    flex: 2;
+}
+
+.bestiary-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bestiary-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+.bestiary-page2 {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    max-height: 90vh;
+    /* Ensure it doesn't go off screen */
+    margin: auto;
+    position: fixed;
+    top: 10%;
+    /* Start 10% from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Only center horizontally */
+    overflow-y: auto;
+    z-index: 1000;
+    gap: 20px;
+    box-shadow: 0 -8px 16px rgba(0, 208, 255, 0.15);
+}
+
+.bestiary-page2 .bestiary-content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.bestiary-page2 .bestiary-text {
+    flex: 2;
+}
+
+.bestiary-page2 .bestiary-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bestiary-page2 .bestiary-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.bestiary-page2 .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.bestiary-page2 .close-btn:hover {
+    color: red;
+}
+
+
+
+/* Buttons that should be the same as the ones in navigation */
+.mamboNav,
+.bestiaryNav {
+    background-color: #b16e09;
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 120px;
+    cursor: pointer;
+    display: block;
+    /* Make buttons block elements */
+    margin-bottom: 0.5rem;
+    /* Space between buttons */
+}
+
+#floatingTooltip {
+    position: absolute;
+    background-color: #333;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    z-index: 1000;
+}
+
+
+/* Objectives Section */
+.dropdown-objectives {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 10;
+    user-select: none;
+}
+
+/* The toggle button */
+.objectives-toggle {
+    background-color: #4b5563;
+    color: white;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    min-width: 110px;
+    cursor: pointer;
+}
+
+/* The dropdown content */
+.objectives-content {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    bottom: 100%;
+    /* Position above the toggle button */
+    left: 0;
+    /* Align left edges */
+    background-color: white;
+    border-radius: 0.5rem;
+    /* Rounded top corners */
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    /* Shadow above */
+    min-width: 300px;
+    padding: 0.5rem;
+    z-index: 20;
+}
+
+
+/* ==========================================================================
+   CSS ANIMATIONS
+   ========================================================================== */
+
+/* 360 degree rotation animation */
+@keyframes rotate360 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#durianId.rotate,
+#creatureOne.rotate,
+#creatureTwo.rotate {
+    animation: rotate360 0.2s linear;
+}
+
+@keyframes shrinkGrow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+
+    }
+
+    50% {
+        transform: scale(0.0);
+        opacity: 0;
+        /* This makes it red */
+    }
+}
+
+
+#durianId.shrinkGrow,
+#creatureOne.shrinkGrow,
+#creatureTwo.shrinkGrow {
+    animation: shrinkGrow 5s ease-in-out forwards;
+}
+
+/* Pulse animation for active elements */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Shimmer effect animation */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade in from bottom animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   HORSE ANATOMY SECTION STYLES
+   ========================================================================== */
+
+.anatomy-image {
+    width: 50%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.anatomy-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.anatomy-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.anatomy-buttons button {
+    background: linear-gradient(135deg, #b16e09 0%, #d97706 100%);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.6rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(177, 110, 9, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect on anatomy buttons */
+.anatomy-buttons button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.anatomy-buttons button:hover::before {
+    left: 100%;
+}
+
+.anatomy-buttons button:hover {
+    background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(177, 110, 9, 0.4);
+}
+
+.anatomy-buttons button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(177, 110, 9, 0.3);
+}
+
+.anatomy-info {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated top border for anatomy info */
+.anatomy-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #b16e09, #d97706, #f59e0b, #d97706, #b16e09);
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+}
+
+.anatomy-info.highlight {
+    border-color: #b16e09;
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 5%, #fff7ed 100%);
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(177, 110, 9, 0.2);
+}
+
+#anatomyText {
+    margin: 0;
+    line-height: 1.7;
+    color: #374151;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.anatomy-info.highlight #anatomyText {
+    color: #92400e;
+    font-weight: 500;
+}
+
+.anatomy-info ul {
+    list-style-type: disc;
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.anatomy-info li {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   HORSE BEHAVIOR SECTION STYLES
+   ========================================================================== */
+
+.behavior-section {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    gap: 2.5rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease forwards;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Alternating layout for behavior sections */
+.behavior-section:nth-child(even) {
+    flex-direction: row-reverse;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+/* Hover effects for behavior sections */
+.behavior-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(177, 110, 9, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.behavior-section:hover::before {
+    left: 100%;
+}
+
+.behavior-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(135deg, #ffffff 0%, #fef3e2 100%);
+}
+
+.behavior-section:nth-child(even):hover {
+    background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
+}
+
+/* Behavior section images */
+.behavior-image {
+    flex: 0 0 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.behavior-image:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+.behavior-content p {
+    color: #374151;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.behavior-section:hover .behavior-content p {
+    opacity: 1;
+    color: #1f2937;
+}
+
+/* Alternating color schemes for behavior sections */
+.behavior-section:nth-child(odd) {
+    border-left: 6px solid #b16e09;
+}
+
+.behavior-section:nth-child(even) {
+    border-right: 6px solid #3b82f6;
+}
+
+/* Staggered animation delays */
+.behavior-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.behavior-section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.behavior-section:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN - MOBILE STYLES
+   ========================================================================== */
+
+@media screen and (max-width: 800px) {
+
+    #ball {
+        z-index: 20;
+    }
+
+    /* Mobile navigation styles */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        display: none;
+        /* Hidden by default on mobile */
+
+    }
+
+    /* Show hamburger menu on mobile */
+    #hamIcon {
+        display: block;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 1100;
+        background-color: #6366f1;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /* Show menu when hamburger is clicked */
+    .main-nav.menuShow ul {
+        display: flex;
+        width: auto;
+        /* Let it shrink to fit content */
+        min-width: unset;
+        /* Cancel any inherited minimum */
+        max-width: 100%;
+        /* Smaller padding */
+        font-size: 0.85rem;
+        /* Smaller text */
+        box-sizing: border-box;
+    }
+
+    .bestiary-page1 {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        width: 90%;
+        max-height: 90vh;
+    }
+
+    .bestiary-image {
+        margin-top: 10px;
+    }
+
+    .bestiary-image img {
+        width: 100%;
+        height: auto;
+    }
+
+
+    .bestiary-page1 .close-btn {
+        font-size: 28px;
+        top: 10px;
+        right: 14px;
+    }
+
+    .bestiary-page1 h3 {
+        font-size: 1.4rem;
+    }
+
+    .bestiary-page1 p {
+        line-height: 1.4;
+    }
+
+    .bestiary-page2 {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        width: 90%;
+        max-height: 90vh;
+    }
+
+    .bestiary-page2 .bestiary-image {
+        margin-top: 10px;
+    }
+
+    .bestiary-page2 .bestiary-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .bestiary-page2 .close-btn {
+        font-size: 28px;
+        top: 10px;
+        right: 14px;
+    }
+
+    .bestiary-page2 h3 {
+        font-size: 1.4rem;
+    }
+
+    .bestiary-page2 p {
+        line-height: 1.4;
+    }
+
+
+    .dropdown-objectives,
+    .dropdown-bestiary,
+    .dropdown-container {
+        z-index: 10;
+    }
+
+    #QRCode {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+    /* Anatomy section mobile styles */
+    .anatomy-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .anatomy-buttons button {
+        width: 80%;
+        max-width: 200px;
+    }
+
+    .anatomy-image {
+        max-width: 100%;
+    }
+
+    /* Behavior section mobile styles */
+    .behavior-section,
+    .behavior-section:nth-child(even) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .behavior-image {
+        flex: none;
+        width: 100%;
+        max-width: 350px;
+        height: 200px;
+    }
+
+    .behavior-content {
+        padding: 0;
+    }
+
+    .behavior-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .behavior-content h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .behavior-section:hover .behavior-content h3::after {
+        width: 80px;
+    }
+
+    .behavior-content p {
+        font-size: 1rem;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+
+    /* Intro of minigame */
+    #introText h2,
+    #introText p {
+        font-size: 0.7rem;
+    }
+
+    #scoreBox,
+    #durianId {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    /*button sizes*/
+    .dropdown-container,
+    .dropdown-bestiary,
+    .dropdown-objectives {
+        font-size: 0.8rem;
+    }
+
+
+    /* Extra small mobile styles */
+    /* Dropdown content */
+    .dropdown-content {
+        min-width: 180px;
+    }
+
+    .dropdown-content .mamboNav {
+        font-size: 0.8rem;
+        margin: 0;
+        /* or 12px */
+    }
+
+    .mamboNav,
+    .bestiaryNav {
+        margin-bottom: 0.1rem;
+    }
+
+    .behavior-section {
+        margin: 1.5rem 0;
+        padding: 1rem;
+    }
+
+    .behavior-image {
+        height: 180px;
+    }
+
+    .behavior-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .behavior-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .bestiary-page1 {
+        padding: 10px;
+        width: 95%;
+    }
+
+    .bestiary-text {
+        font-size: 14px;
+    }
+
+    .bestiary-image img {
+        border-radius: 6px;
+    }
+
+    .bestiary-page2 {
+        padding: 10px;
+        width: 95%;
+    }
+
+    .bestiary-page2 h3 {
+        font-size: 1.2rem;
+    }
+
+    .bestiary-page2 p {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .bestiary-page2 .close-btn {
+        font-size: 24px;
+        top: 8px;
+        right: 10px;
+    }
+
+    .objectives-toggle,
+    .bestiary-toggle,
+    .dropdown-toggle {
+        width: auto;
+        /* Let it shrink to fit content */
+        min-width: unset;
+        /* Cancel any inherited minimum */
+        max-width: 100%;
+        /* Prevent overflow */
+        padding: 0.4rem 0.8rem;
+        /* Smaller padding */
+        font-size: 0.85rem;
+        /* Smaller text */
+        box-sizing: border-box;
+    }
+
+    .objectives-content {
+        font-size: 0.8rem;
+        width: auto;
+        min-width: 130px;
+    }
+
+
+>>>>>>> bd80da09cf09d597de3c0eb0272337d8771a2553
 }
