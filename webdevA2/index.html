@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horses</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <h1>Horses</h1>
+        <div class="hero-content">
+            <h2>The 4 Legged Creatures</h2>
+            <p>Discover the magnificent world of horses through this epic gamer website that teaches you about horses.
+            </p>
+        </div>
+
+    </header>
+    <button id="hamIcon" aria-label="Open Menu">☰</button>
+    <nav class="main-nav"> <!--menu system-->
+        <ul>
+            <li><button id="homebtn">Home</button></li>
+            <li><button id="page1btn">History of Horses</button></li>
+            <li><button id="page2btn">Anatomy of a Horse</button></li>
+            <li><button id="page3btn">Horse Behavior</button></li>
+            <li><button id="page4btn">Competitive Horses</button></li>
+        </ul>
+    </nav>
+
+    <main id="pagecontainer">
+        <section class="page card" id="page1">
+            <h2>Welcome to the Horse World</h2>
+            <p>Click on the buttons above to explore different aspects of horses.</p>
+            <img id="horsekick" src="images/horsekick.gif" alt="Horse kick animation">
+            <img id="QRCode" src="images/QRCode.jpg" alt="QR Code">
+        </section>
+        <section class="page card" id="page2">
+            <h2>History of Horses</h2>
+            <div class="button-group">
+                <button id="leftBtn">Left</button>
+                <button id="resetBtn">Reset</button>
+                <button id="rightBtn">Right</button>
+
+            </div>
+            <div id="ball" class="mambo idle"></div>
+            <div id="contentBox">
+                <p>Use the buttons or A & D to move the horse</p>
+            </div>
+        </section>
+        <section class="page card" id="page3">
+            <h2>Anatomy of a Horse</h2>
+            <p>Learn about the different parts of a horse's body and their functions.</p>
+            <p>Input the keywords or click on the buttons to go to it!</p>
+
+            <form id="KeywordInput">
+                <label for="Keyword">Keywords:</label>
+                <input type="text" id="Keyword" name="Keyword" placeholder="e.g. Body">
+                <button type="submit" id="Submit">Submit</button>
+            </form>
+            <p id="output"></p>
+            <img src="images/Horsetomy.jpg" alt="Horse Anatomy" class="anatomy-image">
+            <div class="anatomy-buttons">
+                <button id="headBtn">Head</button>
+                <button id="neckBtn">Neck</button>
+                <button id="bodyBtn">Body</button>
+                <button id="legsBtn">Legs</button>
+                <button id="hoovesBtn">Hooves</button>
+            </div>
+            <div class="anatomy-info">
+                <p id="anatomyText">Click on the buttons to learn more about each part of the horse's anatomy.</p>
+            </div>
+        </section>
+        <section class="page card" id="page4">
+            <h2>Horse Behavior</h2>
+            <p>Learn about how horses interact, communicate, and live in herds.</p>
+            <div class="behavior-section" id="haru">
+                <h3 id="Haru1">Horse Herds</h3>
+                <p id="Haru2">Horses are social animals that live in groups called herds.</p>
+                <img src="images/HaruUrara.jpg" alt="Horse Herd" class="herd-image">
+                <p id="Haru3">Herds provide safety and social interaction for horses.</p>
+            </div>
+            <div class="behavior-section">
+                <h3>Communication</h3>
+                <p>Horses communicate through body language, vocalizations, and facial expressions.</p>
+                <img src="images/SpeChan.jpg" alt="Horse Communication" class="communication-image">
+                <p>Understanding horse behavior is key to building a strong bond with them.</p>
+            </div>
+            <div class="behavior-section">
+                <h3>Playful Nature</h3>
+                <p>Horses are playful creatures and enjoy activities like running, jumping, and playing with each other.
+                </p>
+                <img src="images/Goldshi.jpg" alt="Horse Play" class="play-image">
+                <p>Play is essential for their physical and mental well-being.</p>
+            </div>
+        </section>
+        <section class="page card" id="page5">
+            <div id="introText">
+                <h2>Competitive Horses</h2>
+                <p>Lets look at some of the well known famous horses when it comes to racing.</p>
+                <p>You can do so by playing the clicker game and unlocking new info using the points you get.</p>
+                <p>Click Matikanetannhauser to get score.</p>
+            </div>
+
+            <div class="game-section">
+                <h2 id="scoreBox">Score: None</h2>
+                <img id="durianId" src="images/Mambo.jpg" alt="durian image">
+            </div>
+
+            <div class="dropdown-container">
+                <button class="dropdown-toggle">Open Store</button>
+                <div class="dropdown-content">
+                    <button class="mamboNav" id="doubleScore" data-tooltip="Doubles the score gained per click!">Double
+                        Score: 20 Score</button>
+                    <button class="mamboNav" id="firstCreature" data-tooltip="Someone who likes honey. (+1 Score)">2nd
+                        Creature: 30 Score</button>
+                    <button class="mamboNav" id="secondCreature" data-tooltip="Worth 12 Billion Yen. (+1 Score)">3rd
+                        Creature: 40 Score</button>
+                    <button class="mamboNav" id="BestiaryLog1" data-tooltip="Learn about a horse!">Bestiary Log 1: 50
+                        Score</button>
+                    <button class="mamboNav" id="BestiaryLog2" data-tooltip="Learn about a horse!">Bestiary Log 2: 50
+                        Score</button>
+                </div>
+            </div>
+
+            <div class="dropdown-bestiary">
+                <button class="bestiary-toggle">Open Bestiary</button>
+                <div class="bestiary-content">
+                    <button class="bestiaryNav" id="firstBestiaryCreature">Not Unlocked</button>
+                    <button class="bestiaryNav" id="secondBestiaryCreature">Not Unlocked</button>
+                </div>
+            </div>
+
+            <div class="dropdown-objectives">
+                <button class="objectives-toggle">Open Objectives</button>
+                <div class="objectives-content">
+                    <p id="obj1">1. Purchase everything in the store.</p>
+                    <p id="obj2">2. Unlock and read the bestiary.</p>
+                    <p id="obj3">3. Possess 100 points.</p>
+                </div>
+            </div>
+
+            <div class="bestiary-page1" id="silence-suzuka">
+                <span class="close-btn">×</span>
+                <div class="bestiary-content-wrapper">
+                    <div class="bestiary-text">
+                        <h3>Silence Suzuka</h3>
+                        <p>Silence Suzuka was a legendary Japanese Thoroughbred known for her exceptional speed and
+                            grace on the
+                            racetrack. Born on May 1, 1994, in Biratori Town, Hokkaido, Japan, she was sired by the
+                            renowned
+                            Sunday Silence and out of the mare Wakia. Trained by Mitsuru Hashida and owned by Keiji
+                            Nagai,
+                            Silence Suzuka quickly became a sensation in Japanese horse racing.</p>
+
+                        <p>Her racing career was marked by dominance on turf distances ranging from 7 to 10 furlongs. In
+                            1998,
+                            she secured several prestigious victories, including the <strong>Takarazuka Kinen</strong>,
+                            <strong>Mainichi Ōkan</strong>, <strong>Kinko Sho</strong>, <strong>Nakayama Kinen</strong>,
+                            and
+                            <strong>Kokura Daishoten</strong>, amassing total earnings of ¥455,984,000. Her racing
+                            record stood
+                            at 16 starts with 9 wins, 1 second, and 0 thirds.
+                        </p>
+
+                        <p>Tragically, her promising career was cut short when she suffered a fatal injury during the
+                            1998
+                            Autumn Tenno Sho, leading to her euthanasia on November 1, 1998, at the age of 4. Despite
+                            her brief
+                            career, Silence Suzuka left an indelible mark on the sport and was posthumously honored as
+                            one of
+                            Japan's greatest racehorses.</p>
+
+                        <p>Her legacy continues to inspire, notably as the inspiration for the character Silence Suzuka
+                            in the
+                            anime series <em>Uma Musume: Pretty Derby</em>, where she is depicted as a spirited and
+                            dedicated
+                            horse girl.</p>
+
+                    </div>
+                    <div class="bestiary-image">
+                        <img src="images/SilenceSuzuka.jpg" alt="Silence Suzuka">
+                    </div>
+                </div>
+            </div>
+            <div class="bestiary-page2" id="secretariat">
+                <span class="close-btn">×</span>
+                <div class="bestiary-content-wrapper">
+                    <div class="bestiary-text">
+                        <h3>Secretariat</h3>
+                        <p>Secretariat was an American Thoroughbred racehorse celebrated for his extraordinary speed,
+                            power, and heart. Born on March 30, 1970, at Meadow Farm in Virginia, he was sired by Bold
+                            Ruler and out of the mare Somethingroyal. Trained by Lucien Laurin and owned by Penny
+                            Chenery’s Meadow Stable, Secretariat quickly rose to legendary status in the world of horse
+                            racing.</p>
+
+                        <p>His racing career was highlighted by his historic 1973 Triple Crown victory, winning the
+                            Kentucky Derby, Preakness Stakes, and Belmont Stakes with remarkable dominance. Notably, his
+                            Belmont Stakes win is famous for the record-breaking 31-length lead and a world record time
+                            of 2:24 for 1.5 miles on dirt. Over his career, Secretariat had 21 starts with 16 wins, 3
+                            seconds, and 1 third, earning more than $1.3 million.</p>
+
+                        <p>Despite retiring young, Secretariat left an indelible legacy in racing history as one of the
+                            greatest racehorses of all time. He was inducted into the National Museum of Racing and Hall
+                            of Fame in 1974 and remains a symbol of equine excellence.</p>
+
+                        <p>His impact extends beyond the racetrack, inspiring books, films, and countless fans
+                            worldwide, ensuring his story endures as a testament to greatness in American horse racing.
+                        </p>
+                    </div>
+                    <div class="bestiary-image">
+                        <img src="images/Secretariat.jpg" alt="Secretariat">
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+    </main>
+</body>
+
+</html>
