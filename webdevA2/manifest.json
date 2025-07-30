@@ -1,13 +1,13 @@
 { 
-    "name": "Horses",
-    "short_name": "Horses",
+    "name": "Umamusume: Pretty Derby",
+    "short_name": "Umamusume",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#000",
     "theme_color": "#000",
     "icons": [
         { 
-            "src": "HaruIcon.jpg",
+            "src": "Umamusume.jpg",
             "sizes": "64x64",
             "type": "image/jpg"
         }
