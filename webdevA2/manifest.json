@@ -1,6 +1,6 @@
 { 
     "name": "Umamusume: Pretty Derby",
-    "short_name": "Umamusume",
+    "short_name": "Umamusume: Pretty Derby",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#000",
