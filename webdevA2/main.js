@@ -238,7 +238,7 @@ function CheckForTargetArea() {
         if (ballX >= MaxX * zone.start && ballX <= MaxX * zone.end) {
             document.querySelector("#contentBox").innerHTML = zone.content;
             found = true;
-            console.log(`In zone: ${zone.start}-${zone.end}, ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX/MaxX}`);
+            console.log(`In zone: ${zone.start}-${zone.end}, ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX / MaxX}`);
             break;
         }
     }
@@ -246,7 +246,7 @@ function CheckForTargetArea() {
     // Fallback if no zone is found
     if (!found) {
         document.querySelector("#contentBox").innerHTML = "Use the buttons or A & D to move the horse";
-        console.log(`No zone found! ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX/MaxX}`);
+        console.log(`No zone found! ballX: ${ballX}, MaxX: ${MaxX}, ratio: ${ballX / MaxX}`);
     }
 }
 
@@ -268,7 +268,7 @@ function MoveLeftBtn() {
 
     if (!hitMaxX) {
         toggleSprite();
-        setTimeout(() => {
+        setTimeout(function () {
             toggleSprite();
         }, 200);
     }
@@ -280,7 +280,7 @@ function MoveRightBtn() {
     console.log("Moved by " + moveDistance + " !");
     playClickShiftSound();
     toggleSprite();
-    setTimeout(() => {
+    setTimeout(function () {
         toggleSprite();
     }, 200);
 }
@@ -291,7 +291,7 @@ rightBtn.addEventListener("click", MoveRightBtn);
 resetBtn.addEventListener("click", ResetPos);
 
 // Keyboard controls with better structure
-document.addEventListener('keydown', (e) => {
+document.addEventListener('keydown', function (e) {
 
     switch (e.code) {
         case "KeyA":
@@ -408,7 +408,10 @@ function MoveDurian(durian) {
 
 function ActivateMamboMovement() {
     if (score === 1 && !moveDurianItvId) {
-        moveDurianItvId = setInterval(() => MoveDurian(durianId), intervalspeed);
+        moveDurianItvId = setInterval(function () {
+            MoveDurian(durianId);
+        }, intervalspeed);
+
     }
 }
 
@@ -441,7 +444,7 @@ function durianCatch(creature) {
     if (score >= scoregoal) {
         shrinkgrowfunctioncapture(creature);
         creature.mamboPaused = true;
-        setTimeout(() => {
+        setTimeout(function () {
             creature.mamboPaused = false;
         }, 3000);
 
@@ -485,13 +488,17 @@ function updateAllCreatureIntervals() {
 
     // Update original durian
     clearInterval(moveDurianItvId);
-    moveDurianItvId = setInterval(() => MoveDurian(durianId), intervalspeed);
+    moveDurianItvId = setInterval(function () {
+        MoveDurian(durianId);
+    }, intervalspeed);
 
     // Update creature one
     if (firstCreatureBought && creatureOne) {
         console.log("Updating creature one interval");
         clearInterval(creatureOneInitialInterval);
-        creatureOneInitialInterval = setInterval(() => MoveDurian(creatureOne), intervalspeed);
+        creatureOneInitialInterval = setInterval(function () {
+            MoveDurian(creatureOne);
+        }, intervalspeed);
     } else {
         console.log("Skipping creature one - firstCreatureBought:", firstCreatureBought, "creatureOne:", creatureOne);
     }
@@ -500,7 +507,9 @@ function updateAllCreatureIntervals() {
     if (secondCreatureBought && creatureTwo) {
         console.log("Updating creature two interval");
         clearInterval(creatureTwoInitialInterval);
-        creatureTwoInitialInterval = setInterval(() => MoveDurian(creatureTwo), intervalspeed);
+        creatureTwoInitialInterval = setInterval(function () {
+            MoveDurian(creatureTwo);
+        }, intervalspeed);
     }
 }
 
@@ -530,7 +539,9 @@ function shrinkgrowfunctioncapture(durianId) {
 
 //Pause the clicks whenever the score goal is passed as the css animations need to be played
 if (!pausescore) {
-    durianId.addEventListener("click", () => durianCatch(durianId));
+    durianId.addEventListener("click", function () {
+        durianCatch(durianId);
+    });
 }
 
 
@@ -545,12 +556,15 @@ function spawnCreatureOne() {
     gameSection.appendChild(creatureOne);
 
     // Add click handler using shared logic
-    creatureOne.addEventListener("click", () => durianCatch(creatureOne));
+    creatureOne.addEventListener("click", function () {
+        durianCatch(creatureOne);
+    });
 
     // Move this durian independently
-    creatureOneInitialInterval = setInterval(() => {
+    creatureOneInitialInterval = setInterval(function () {
         MoveDurian(creatureOne);
     }, intervalspeed);
+
 
     firstCreatureBought = true;
 }
@@ -565,11 +579,15 @@ function spawnCreatureTwo() {
     gameSection.appendChild(creatureTwo);
 
     // Add click handler using shared logic
-    creatureTwo.addEventListener("click", () => durianCatch(creatureTwo));
+    creatureTwo.addEventListener("click", function () {
+        durianCatch(creatureTwo);
+    });
 
-    creatureTwoInitialInterval = setInterval(() => {
+
+    creatureTwoInitialInterval = setInterval(function () {
         MoveDurian(creatureTwo);
     }, intervalspeed);
+
 
     secondCreatureBought = true;
 }
@@ -748,11 +766,12 @@ function StoreCheck(creatureKey) {
         playDeniedSound();
 
         // Re-enable button after 2 seconds and restore original text
-        btn._timeoutID = setTimeout(() => {
+        btn._timeoutID = setTimeout(function () {
             btn.innerHTML = originalText;
             btn.disabled = false;
             btn._timeoutID = null;
         }, 2000);
+
 
         // Return early to prevent further processing
         return;
@@ -762,19 +781,30 @@ function StoreCheck(creatureKey) {
 
 //Store Buttons
 const doubleptsBtn = document.getElementById("doubleScore");
-doubleptsBtn.addEventListener("click", () => StoreCheck("doubleScore"));
+doubleptsBtn.addEventListener("click", function () {
+    StoreCheck("doubleScore");
+});
 
 const firstcreatureBtn = document.getElementById("firstCreature");
-firstcreatureBtn.addEventListener("click", () => StoreCheck("creatureOne"));
+firstcreatureBtn.addEventListener("click", function () {
+    StoreCheck("creatureOne");
+});
 
 const secondcreatureBtn = document.getElementById("secondCreature");
-secondcreatureBtn.addEventListener("click", () => StoreCheck("creatureTwo"));
+secondcreatureBtn.addEventListener("click", function () {
+    StoreCheck("creatureTwo");
+});
 
 const bestiarylog1Btn = document.getElementById("BestiaryLog1");
-bestiarylog1Btn.addEventListener("click", () => StoreCheck("bestiaryLogOne"));
+bestiarylog1Btn.addEventListener("click", function () {
+    StoreCheck("bestiaryLogOne");
+});
 
 const bestiarylog2Btn = document.getElementById("BestiaryLog2");
-bestiarylog2Btn.addEventListener("click", () => StoreCheck("bestiaryLogTwo"));
+bestiarylog2Btn.addEventListener("click", function () {
+    StoreCheck("bestiaryLogTwo");
+});
+
 
 
 // Bestiary Section Menu
@@ -790,7 +820,7 @@ function toggleBestiaryMenu(e) {
         playClickMenuSound();
         bestiaryMenuList.style.display = "block";
 
-        
+
         //Kill off the other opened ones
         objectivesMenuList.classList.remove("show");
         objectivesMenuBtn.innerHTML = "Open Objectives";
@@ -958,8 +988,7 @@ function ObjCheck() {
     if (score >= 100) {
         Objective3.style.textDecoration = "line-through";
     }
-    else
-    {
+    else {
         Objective3.style.textDecoration = "none";
     }
 
@@ -988,23 +1017,24 @@ document.body.appendChild(tooltip);
 
 const buttons = document.querySelectorAll('.mamboNav');
 
-buttons.forEach(button => {
-    button.addEventListener('mousemove', e => {
+buttons.forEach(function (button) {
+    button.addEventListener('mousemove', function (e) {
         const text = button.getAttribute('data-tooltip');
         tooltip.textContent = text;
 
         const tooltipWidth = tooltip.offsetWidth;
 
         tooltip.style.top = (e.pageY + 15) + 'px';
-        tooltip.style.left = (e.pageX - tooltipWidth) + 'px'; // position to left
+        tooltip.style.left = (e.pageX - tooltipWidth) + 'px';
 
         tooltip.style.opacity = 1;
     });
 
-    button.addEventListener('mouseleave', () => {
+    button.addEventListener('mouseleave', function () {
         tooltip.style.opacity = 0;
     });
 });
+
 
 
 
@@ -1044,29 +1074,32 @@ function updateAnatomyInfo(partName) {
     if (data) {
         anatomyInfo.classList.add('loading');
 
-        setTimeout(() => {
-            // Split content into sentences by period + space
-            const sentences = data.content.split('. ').filter(s => s.trim().length > 0);
+        setTimeout(function () {
+            const sentences = data.content.split('. ').filter(function (s) {
+                return s.trim().length > 0;
+            });
 
-            // Build list items
-            const listItems = sentences.map(sentence => `<li>${sentence.trim()}.</li>`).join('');
+            const listItems = sentences.map(function (sentence) {
+                return `<li>${sentence.trim()}.</li>`;
+            }).join('');
 
             anatomyText.innerHTML = `
-                <strong style="color: #b16e09; font-size: 1.3rem; display: block; margin-bottom: 1rem;">
-                    ${data.title}
-                </strong>
-                <ul style="padding-left: 1.2rem; margin-top: 0;">
-                    ${listItems}
-                </ul>
-            `;
+        <strong style="color: #b16e09; font-size: 1.3rem; display: block; margin-bottom: 1rem;">
+            ${data.title}
+        </strong>
+        <ul style="padding-left: 1.2rem; margin-top: 0;">
+            ${listItems}
+        </ul>
+    `;
 
             anatomyInfo.classList.remove('loading');
             anatomyInfo.classList.add('highlight');
 
-            setTimeout(() => {
+            setTimeout(function () {
                 anatomyInfo.classList.remove('highlight');
             }, 1000);
         }, 300);
+
     }
 }
 
@@ -1074,7 +1107,9 @@ function updateAnatomyInfo(partName) {
 // Function to set active button
 function setActiveButton(activeButton) {
     // Remove active class from all buttons
-    anatomyButtons.forEach(btn => btn.classList.remove('active'));
+    anatomyButtons.forEach(function (btn) {
+        btn.classList.remove('active');
+    });
 
     // Add active class to clicked button
     activeButton.classList.add('active');
@@ -1082,53 +1117,49 @@ function setActiveButton(activeButton) {
 
 // Function to add interactive button effects
 function addButtonEffects() {
-    anatomyButtons.forEach(button => {
-        // Add click sound effect (if you have audio)
+    anatomyButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-            // Optional: Add click sound
             playClickSound();
 
-            // Add ripple effect
             const ripple = document.createElement('span');
             ripple.classList.add('ripple');
             this.appendChild(ripple);
 
-            setTimeout(() => {  
+            setTimeout(function () {
                 ripple.remove();
             }, 600);
         });
 
-        // Add hover sound effect
         button.addEventListener('mouseenter', function () {
-            // Optional: Add hover sound
             // playHoverSound();
         });
     });
+
 }
 
 //Form
-document.getElementById("KeywordInput").addEventListener("submit", function(event) {
-  event.preventDefault();
+document.getElementById("KeywordInput").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  const formData = new FormData(this);
-  const userInput = formData.get("Keyword").toLowerCase().trim();
+    const formData = new FormData(this);
+    const userInput = formData.get("Keyword").toLowerCase().trim();
 
-  const validParts = ["Head", "head", "Neck", "neck", "Body", "body", "Legs", "legs", "Hooves", "hooves"]; // Add more parts as needed
+    const validParts = ["Head", "head", "Neck", "neck", "Body", "body", "Legs", "legs", "Hooves", "hooves"]; // Add more parts as needed
 
-  if (validParts.includes(userInput)) {
-    updateAnatomyInfo(userInput);
+    if (validParts.includes(userInput)) {
+        updateAnatomyInfo(userInput);
 
-    const button = document.querySelector(`.anatomy-buttons button[data-part="${userInput}"]`);
-    if (button) setActiveButton(button);
+        const button = document.querySelector(`.anatomy-buttons button[data-part="${userInput}"]`);
+        if (button) setActiveButton(button);
 
-    document.getElementById("output").innerText = 'Success!'; // Clear error if valid
-    playWinnerSound();
-  } else {
-    document.getElementById("output").innerText = `Invalid Input! Try again...`;
-    playDeniedSound();
-  }
+        document.getElementById("output").innerText = 'Success!'; // Clear error if valid
+        playWinnerSound();
+    } else {
+        document.getElementById("output").innerText = `Invalid Input! Try again...`;
+        playDeniedSound();
+    }
 
-  this.reset(); // optional: clears the input field
+    this.reset(); // optional: clears the input field
 });
 // Event listeners for anatomy buttons
 document.addEventListener('DOMContentLoaded', function () {
@@ -1198,7 +1229,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Optional: Function to reset to default state
 function resetAnatomyInfo() {
     anatomyText.innerHTML = "Click on the buttons to learn more about each part of the horse's anatomy.";
-    anatomyButtons.forEach(btn => btn.classList.remove('active'));
+    anatomyButtons.forEach(function (btn) {
+        btn.classList.remove('active');
+    });
+
     anatomyInfo.classList.remove('highlight', 'loading');
 }
 
@@ -1254,18 +1288,14 @@ document.addEventListener('DOMContentLoaded', function () {
 function initializeBehaviorSection() {
     const behaviorSections = document.querySelectorAll('.behavior-section');
 
-    behaviorSections.forEach((section, index) => {
-        // Create structured content for each section
+    behaviorSections.forEach(function (section, index) {
         restructureSection(section, index);
-
-        // Add click interaction
         addSectionClickHandler(section, index);
-
-        // Add keyboard navigation
         section.setAttribute('tabindex', '0');
         section.setAttribute('role', 'article');
-        section.setAttribute('aria-label', `Horse behavior section ${index + 1}`);
+        section.setAttribute('aria-label', 'Horse behavior section ' + (index + 1));
     });
+
 }
 
 // Function to restructure sections with proper layout
@@ -1291,9 +1321,10 @@ function restructureSection(section, index) {
     contentDiv.appendChild(heading);
 
     // Add paragraphs to content
-    paragraphs.forEach(p => {
+    paragraphs.forEach(function (p) {
         contentDiv.appendChild(p);
     });
+
 
     // Arrange image and content based on section index
     if (index % 2 === 0) {
@@ -1316,7 +1347,7 @@ function addSectionClickHandler(section, index) {
         // Add a subtle animation when clicked
         this.style.transform = 'scale(0.98)';
 
-        setTimeout(() => {
+        setTimeout(function () {
             this.style.transform = '';
         }, 150);
 
@@ -1369,7 +1400,10 @@ function addSectionClickHandler(section, index) {
 function showBehaviorDetails(section, index) {
     if (index === 0 && Harushown === true) {
         const existingTooltips = document.querySelectorAll('.behavior-tooltip');
-        existingTooltips.forEach(tooltip => tooltip.remove());
+        existingTooltips.forEach(function (tooltip) {
+            tooltip.remove();
+        });
+
         return; // Don't show details if haru is already shown and index is 0
     }
 
@@ -1398,7 +1432,10 @@ function showBehaviorDetails(section, index) {
 function showTooltip(section, info) {
     // Remove existing tooltips
     const existingTooltips = document.querySelectorAll('.behavior-tooltip');
-    existingTooltips.forEach(tooltip => tooltip.remove());
+    existingTooltips.forEach(function (tooltip) {
+        tooltip.remove();
+    });
+
 
     // Create tooltip
     const tooltip = document.createElement('div');
@@ -1434,23 +1471,29 @@ function showTooltip(section, info) {
     closeBtn.addEventListener('click', function (e) {
         e.stopPropagation();
         tooltip.style.animation = 'fadeOut 0.3s ease';
-        setTimeout(() => tooltip.remove(), 300);
+        setTimeout(function () {
+            tooltip.remove();
+        }, 300);
+
         playClickShiftSound();
     });
 
     // Auto-hide after 5 seconds
-    setTimeout(() => {
+    setTimeout(function () {
         if (tooltip.parentNode) {
             tooltip.style.animation = 'fadeOut 0.3s ease';
-            setTimeout(() => tooltip.remove(), 300);
+            setTimeout(function () {
+                tooltip.remove();
+            }, 300);
         }
     }, 5000);
+
 }
 
 // Function to add scroll animations
 function addScrollAnimations() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
             }
@@ -1462,17 +1505,18 @@ function addScrollAnimations() {
 
     // Observe all behavior sections
     const behaviorSections = document.querySelectorAll('.behavior-section');
-    behaviorSections.forEach(section => {
+    behaviorSections.forEach(function (section) {
         section.classList.add('scroll-animate');
         observer.observe(section);
     });
 }
 
+
 // Function to add image lazy loading and error handling
 function addImageLazyLoading() {
     const behaviorImages = document.querySelectorAll('.behavior-image');
 
-    behaviorImages.forEach(img => {
+    behaviorImages.forEach(function (img) {
         // Add loading placeholder
         img.style.background = 'linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 50%, #f0f0f0 50%, #f0f0f0 75%, transparent 75%, transparent)';
         img.style.backgroundSize = '20px 20px';
@@ -1482,15 +1526,15 @@ function addImageLazyLoading() {
             this.style.background = '';
             this.classList.add('loaded');
         });
-
     });
+
 }
 
 // Function to add interactive effects
 function addInteractiveEffects() {
     const behaviorSections = document.querySelectorAll('.behavior-section');
 
-    behaviorSections.forEach((section) => {
+    behaviorSections.forEach(function (section) {
         const image = section.querySelector('.behavior-image');
         const content = section.querySelector('.behavior-content');
 
@@ -1505,7 +1549,7 @@ function addInteractiveEffects() {
             const moveX = (x - 0.5) * 10;
             const moveY = (y - 0.5) * 10;
 
-            image.style.transform = `translateX(${moveX}px) translateY(${moveY}px) scale(1.02)`;
+            image.style.transform = 'translateX(' + moveX + 'px) translateY(' + moveY + 'px) scale(1.02)';
         });
 
         // Reset on mouse leave
@@ -1524,6 +1568,7 @@ function addInteractiveEffects() {
             this.style.outlineOffset = '';
         });
     });
+
 }
 
 // Add CSS animations for tooltips
@@ -1606,7 +1651,7 @@ const HachimiSound = new Audio("audio/Hachimi.mp3");
 const GoldshiScreamSound = new Audio("audio/GoldshiScream.mp3");
 const WinnerSound = new Audio("audio/Success.mp3");
 const XSound = new Audio("audio/JumpXButton.mp3");
-const DeniedSound = new Audio ("audio/Denied.mp3");
+const DeniedSound = new Audio("audio/Denied.mp3");
 
 //Audio adjust
 GoldshiScreamSound.volume = 0.5; // Lower volume for Goldshi scream
@@ -1667,7 +1712,7 @@ function playCrossXSound() {
     JumpSoundX.play();
 }
 
-function playDeniedSound () {
+function playDeniedSound() {
     const Denied = DeniedSound.cloneNode(); // Duplicate to allow overlapping
     Denied.play();
 }
@@ -1677,14 +1722,13 @@ BGM.volume = 1;
 BGM.loop = true;
 // Wait for the user to click anywhere on the page before playing BGM
 document.addEventListener("click", function startMusicOnce() {
-    BGM.play().then(() => {
-        //console.log("BGM started playing");
-    }).catch(err => {
+    BGM.play().then(function () {
+        // console.log("BGM started playing");
+    }).catch(function (err) {
         console.warn("BGM failed to play:", err);
     });
 
     // Remove this listener so BGM doesn't try to start again every click
-
     document.removeEventListener("click", startMusicOnce);
 });
 
