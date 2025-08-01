@@ -1349,7 +1349,8 @@ function addSectionClickHandler(section, index) {
 
         setTimeout(function () {
             this.style.transform = '';
-        }, 150);
+        }.bind(this), 150);
+        // locks the value of this inside a function to a specific object.
 
         //Score +1
 
